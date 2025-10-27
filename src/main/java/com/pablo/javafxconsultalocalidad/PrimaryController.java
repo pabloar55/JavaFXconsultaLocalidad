@@ -8,19 +8,27 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PrimaryController {
     @FXML
     private TableView<Empleado> tabla;
     @FXML
     private TableColumn<Empleado, Integer> colId;
+    @FXML
+    private TableColumn<Empleado, String> colape;
+    @FXML
+    private TableColumn<Empleado, String> colofi;
     private String localidad;
     @FXML
     private TextField textoLoc;
     private ArrayList<Empleado> empleados;
     @FXML
     private void initialize(){
-        
+                colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colape.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+
+        colofi.setCellValueFactory(new PropertyValueFactory<>("oficio"));
     }
     @FXML
     public void listenerBotonLocalidad(){

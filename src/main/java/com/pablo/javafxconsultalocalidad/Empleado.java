@@ -4,43 +4,57 @@
  */
 package com.pablo.javafxconsultalocalidad;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  *
  * @author pablo
  */
 public class Empleado {
-    private int id;
-    private String apellido;
-    private String oficio;
+    private SimpleIntegerProperty id;
+    private SimpleStringProperty apellido;
+    private SimpleStringProperty oficio;
 
     public Empleado(int id, String apellido, String oficio) {
         setId(id);
         setApellido(apellido);
         setOficio(oficio);
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getApellido() {
+    public SimpleStringProperty apellidoProperty() {
         return apellido;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public SimpleIntegerProperty idProperty() {
+        return id;
     }
 
-    public String getOficio() {
+    public SimpleStringProperty oficioProperty() {
         return oficio;
     }
 
+    public int getId() {
+        return id.get();
+    }
+
+    public void setId(int id) {
+        this.id = new SimpleIntegerProperty(id);
+    }
+
+    public String getApellido() {
+        return apellido.get();
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = new SimpleStringProperty(apellido);
+    }
+
+    public String getOficio() {
+        return oficio.get();
+    }
+
     public void setOficio(String oficio) {
-        this.oficio = oficio;
+        this.oficio = new SimpleStringProperty(oficio);
     }
 
     @Override
