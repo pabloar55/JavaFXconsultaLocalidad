@@ -4,6 +4,7 @@
  */
 package com.pablo.javafxconsultalocalidad;
 
+import java.sql.Date;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -15,11 +16,13 @@ public class Empleado {
     private SimpleIntegerProperty id;
     private SimpleStringProperty apellido;
     private SimpleStringProperty oficio;
+    //private SimpleStringProperty fechaAlta;
 
-    public Empleado(int id, String apellido, String oficio) {
+    public Empleado(int id, String apellido, String oficio/*, Date fechaAlta*/) {
         setId(id);
         setApellido(apellido);
         setOficio(oficio);
+       // setFechaAlta(fechaAlta);
     }
     public SimpleStringProperty apellidoProperty() {
         return apellido;
@@ -32,6 +35,18 @@ public class Empleado {
     public SimpleStringProperty oficioProperty() {
         return oficio;
     }
+       /* public SimpleStringProperty fechaAltaProperty() {
+        return fechaAlta;
+    }
+
+    public Date getFechaAlta() {
+        return Date.valueOf(fechaAlta.get());
+    }
+
+    public void setFechaAlta(Date fechaAlta) {
+        this.fechaAlta = new SimpleStringProperty(fechaAlta.toString());
+    }*/
+    
 
     public int getId() {
         return id.get();
@@ -59,7 +74,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "id=" + id + ", apellido=" + apellido + ", oficio=" + oficio + '}';
+        return "Empleado{" + "id=" + id + ", apellido=" + apellido + ", oficio=" + oficio /*+ "fecha alta=" + fechaAlta */+ '}';
     }
     
 }
